@@ -15,10 +15,10 @@ module github.com/xxl-job/xxl-job-executor-go
 ```go
 require github.com/xxl-job/xxl-job-executor-go v1.2.0
 
-replace github.com/xxl-job/xxl-job-executor-go => github.com/<your-account>/xxl-job-executor-go <tag-or-commit>
+replace github.com/xxl-job/xxl-job-executor-go => github.com/MainPoser/xxl-job-executor-go <tag-or-commit>
 ```
 
-如果未来决定把 module path 改成 fork 地址，使用方需要同步修改所有 import；除非确实需要直接 `go get github.com/<your-account>/xxl-job-executor-go`，否则不建议这么做。
+如果未来决定把 module path 改成 fork 地址，使用方需要同步修改所有 import；除非确实需要直接 `go get github.com/MainPoser/xxl-job-executor-go`，否则不建议这么做。
 
 ## Maintenance Rules
 
