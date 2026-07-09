@@ -1,4 +1,35 @@
 # xxl-job-executor-go
+
+本仓库基于 [`xxl-job/xxl-job-executor-go`](https://github.com/xxl-job/xxl-job-executor-go) 继续维护，目标是保持 XXL-JOB Go 执行器的兼容性、补充测试和修复已知问题。代码仍按开源方式维护，欢迎在 fork 基础上继续提交 issue 和 pull request。
+
+## Fork 使用方式
+
+为了让已有项目不修改原来的 import，可以继续保留：
+
+```go
+import xxl "github.com/xxl-job/xxl-job-executor-go"
+```
+
+然后在使用方项目的 `go.mod` 中通过 `replace` 指向本 fork：
+
+```go
+require github.com/xxl-job/xxl-job-executor-go v1.2.0
+
+replace github.com/xxl-job/xxl-job-executor-go => github.com/<your-account>/xxl-job-executor-go <tag-or-commit>
+```
+
+如果本地调试 fork，也可以临时指向本地路径：
+
+```go
+replace github.com/xxl-job/xxl-job-executor-go => ../xxl-job-executor-go
+```
+
+发布维护版本时建议使用独立 tag，例如 `v1.2.1`, `v1.2.2`。每次修复应包含回归测试，并执行：
+
+```bash
+go test ./...
+```
+
 很多公司java与go开发共存，java中有xxl-job做为任务调度引擎，为此也出现了go执行器(客户端)，使用起来比较简单：
 # 支持
 ```	

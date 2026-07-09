@@ -162,7 +162,10 @@ func (e *executor) runTask(writer http.ResponseWriter, request *http.Request) {
 	}
 
 	cxt := context.Background()
-	task := e.regList.Get(param.ExecutorHandler)
+	regTask := e.regList.Get(param.ExecutorHandler)
+	task := &Task{
+		fn: regTask.fn,
+	}
 	if param.ExecutorTimeout > 0 {
 		task.Ext, task.Cancel = context.WithTimeout(cxt, time.Duration(param.ExecutorTimeout)*time.Second)
 	} else {
