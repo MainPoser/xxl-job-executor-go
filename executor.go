@@ -164,7 +164,8 @@ func (e *executor) runTask(writer http.ResponseWriter, request *http.Request) {
 	cxt := context.Background()
 	regTask := e.regList.Get(param.ExecutorHandler)
 	task := &Task{
-		fn: regTask.fn,
+		fn:        regTask.fn,
+		StartTime: time.Now().Unix(),
 	}
 	if param.ExecutorTimeout > 0 {
 		task.Ext, task.Cancel = context.WithTimeout(cxt, time.Duration(param.ExecutorTimeout)*time.Second)
@@ -323,6 +324,7 @@ func (e *executor) registryRemove() {
 
 // 回调任务列表
 func (e *executor) callback(task *Task, code int64, msg string) {
+	task.EndTime = time.Now().Unix()
 	e.runList.Del(Int64ToStr(task.Id))
 	res, err := e.post("/api/callback", string(returnCall(task.Param, code, msg)))
 	if err != nil {
