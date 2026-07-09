@@ -15,7 +15,7 @@ import xxl "github.com/xxl-job/xxl-job-executor-go"
 ```go
 require github.com/xxl-job/xxl-job-executor-go v1.2.0
 
-replace github.com/xxl-job/xxl-job-executor-go => github.com/<your-account>/xxl-job-executor-go <tag-or-commit>
+replace github.com/xxl-job/xxl-job-executor-go => github.com/MainPoser/xxl-job-executor-go <tag-or-commit>
 ```
 
 如果本地调试 fork，也可以临时指向本地路径：
